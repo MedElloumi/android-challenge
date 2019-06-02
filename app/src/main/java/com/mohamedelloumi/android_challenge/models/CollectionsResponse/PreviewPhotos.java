@@ -1,9 +1,13 @@
-package com.mohamedelloumi.android_challenge.models;
+package com.mohamedelloumi.android_challenge.models.CollectionsResponse;
+
+import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
 public class PreviewPhotos {
+    @SerializedName("id")
     private String id;
-    private ArrayList<Urls> urls = new ArrayList<>();
+    @SerializedName("urls")
+    private Urls urls;
 
 }

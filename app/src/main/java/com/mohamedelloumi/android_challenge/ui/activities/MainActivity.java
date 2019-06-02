@@ -15,8 +15,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         // add first screen fragment
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        FirstScreenFragment mainScreenFragment = new FirstScreenFragment();
-        fragmentTransaction.add(R.id.container, mainScreenFragment);
+        FirstScreenFragment firstScreenFragment = new FirstScreenFragment();
+        fragmentTransaction.add(R.id.container, firstScreenFragment);
         fragmentTransaction.commit();
     }
 }
