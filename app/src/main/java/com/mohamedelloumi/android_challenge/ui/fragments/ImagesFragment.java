@@ -12,6 +12,8 @@ import com.mohamedelloumi.android_challenge.R;
 import com.mohamedelloumi.android_challenge.databinding.FragmentImagesBinding;
 import com.mohamedelloumi.android_challenge.presenters.ImagesPresenter;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -24,12 +26,16 @@ public class ImagesFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         FragmentImagesBinding binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_images, container, false);
-        binding.setPresenter(new ImagesPresenter());
+        String clientId = null;
+        if (getArguments() != null) {
+            clientId = (getArguments()).getString("collectionId");
+        }
+        binding.setPresenter(new ImagesPresenter(clientId));
         return binding.getRoot();
     }
 

@@ -1,7 +1,7 @@
 package com.mohamedelloumi.android_challenge.logic;
 
 import com.mohamedelloumi.android_challenge.configuration.Settings;
-import com.mohamedelloumi.android_challenge.models.CollectionsResponse.Collection;
+import com.mohamedelloumi.android_challenge.models.Collection;
 import com.mohamedelloumi.android_challenge.network.Client;
 import com.mohamedelloumi.android_challenge.network.CollectionsService;
 

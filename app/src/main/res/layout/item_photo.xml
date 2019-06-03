@@ -8,7 +8,7 @@
 
         <variable
             name="item"
-            type="com.mohamedelloumi.android_challenge.models.Collection" />
+            type="com.mohamedelloumi.android_challenge.models.Photo" />
 
     </data>
 
@@ -17,18 +17,17 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/itemCollectionImageView"
+            android:id="@+id/itemPhotoImageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            app:img="@{item.coverPhoto.urls.thumb}"
+            app:img="@{item.urls.thumb}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.15"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:onCategoryClicked="@{item.id}"
             tools:ignore="contentDescription" />
     </android.support.constraint.ConstraintLayout>
 </layout>

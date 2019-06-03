@@ -1,6 +1,11 @@
-package com.mohamedelloumi.android_challenge.models.CollectionsResponse;
+package com.mohamedelloumi.android_challenge.models;
 
 import com.google.gson.annotations.SerializedName;
+import com.mohamedelloumi.android_challenge.models.CollectionsResponse.CoverPhoto;
+import com.mohamedelloumi.android_challenge.models.CollectionsResponse.Links;
+import com.mohamedelloumi.android_challenge.models.CollectionsResponse.PreviewPhotos;
+import com.mohamedelloumi.android_challenge.models.CollectionsResponse.Tags;
+import com.mohamedelloumi.android_challenge.models.CollectionsResponse.User;
 
 import java.util.ArrayList;
 
@@ -35,6 +40,11 @@ public class Collection {
     private CoverPhoto coverPhoto;
     @SerializedName("preview_photos")
     private ArrayList<PreviewPhotos> previewPhotos = new ArrayList<>();
+
+
+    public int getId() {
+        return id;
+    }
 
     public CoverPhoto getCoverPhoto() {
         return coverPhoto;

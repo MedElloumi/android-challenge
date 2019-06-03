@@ -12,6 +12,8 @@ import com.mohamedelloumi.android_challenge.R;
 import com.mohamedelloumi.android_challenge.databinding.FragmentFirstScreenBinding;
 import com.mohamedelloumi.android_challenge.presenters.FirstScreenPresenter;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -24,7 +26,7 @@ public class FirstScreenFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         FragmentFirstScreenBinding binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_first_screen, container, false);

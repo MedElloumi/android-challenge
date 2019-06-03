@@ -14,10 +14,6 @@ public class Urls {
     @SerializedName("thumb")
     private String thumb;
 
-    public String getFull() {
-        return full;
-    }
-
     public String getThumb() {
         return thumb;
     }

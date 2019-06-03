@@ -4,7 +4,7 @@ import android.databinding.ObservableArrayList;
 import android.databinding.ObservableBoolean;
 
 import com.mohamedelloumi.android_challenge.logic.CollectionsLogic;
-import com.mohamedelloumi.android_challenge.models.CollectionsResponse.Collection;
+import com.mohamedelloumi.android_challenge.models.Collection;
 
 import java.util.List;
 import java.util.Objects;
@@ -30,7 +30,6 @@ public class FirstScreenPresenter implements CollectionsLogic.CollectionsInterfa
 
     @Override
     public void onCollectionsFailure(Throwable t) {
-        System.out.println(t.toString());
         isLoading.set(false);
     }
 }

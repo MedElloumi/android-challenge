@@ -1,6 +1,6 @@
 package com.mohamedelloumi.android_challenge.network;
 
-import com.mohamedelloumi.android_challenge.models.CollectionsResponse.Collection;
+import com.mohamedelloumi.android_challenge.models.Collection;
 
 import java.util.List;
 

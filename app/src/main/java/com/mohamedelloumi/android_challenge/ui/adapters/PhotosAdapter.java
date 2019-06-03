@@ -1,6 +1,5 @@
 package com.mohamedelloumi.android_challenge.ui.adapters;
 
-import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.view.LayoutInflater;
@@ -10,27 +9,27 @@ import android.widget.BaseAdapter;
 
 import com.mohamedelloumi.android_challenge.BR;
 import com.mohamedelloumi.android_challenge.R;
-import com.mohamedelloumi.android_challenge.models.Collection;
+import com.mohamedelloumi.android_challenge.models.Photo;
 
 import java.util.List;
 
 
-public class CollectionsAdapter extends BaseAdapter {
+public class PhotosAdapter extends BaseAdapter {
 
-    private List<Collection> collectionList;
+    private List<Photo> photosList;
 
-    public CollectionsAdapter(List<Collection> collectionList) {
-        this.collectionList = collectionList;
+    public PhotosAdapter(List<Photo> photosList) {
+        this.photosList = photosList;
     }
 
     @Override
     public int getCount() {
-        return collectionList.size();
+        return photosList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return collectionList.get(position);
+        return photosList.get(position);
     }
 
     @Override
@@ -41,17 +40,18 @@ public class CollectionsAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewDataBinding binding;
-        final String collectionImage = collectionList.get(position).getCoverPhoto().getUrls().getThumb();
-        System.out.println(collectionImage);
+        final String photoImage = photosList.get(position).getUrls().getThumb();
+        System.out.println(photoImage);
         if (convertView != null) {
             binding = (ViewDataBinding) convertView.getTag();
         } else {
             LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-            binding = DataBindingUtil.inflate(inflater, R.layout.item_collection, parent, false);
+            binding = DataBindingUtil.inflate(inflater, R.layout.item_photo, parent, false);
             convertView = binding.getRoot();
             convertView.setTag(binding);
         }
-        binding.setVariable(BR.item, collectionList.get(position));
+        binding.setVariable(BR.item, photosList.get(position));
         return convertView;
     }
 }
+

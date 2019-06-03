@@ -12,6 +12,8 @@ import com.mohamedelloumi.android_challenge.R;
 import com.mohamedelloumi.android_challenge.databinding.FragmentItemBinding;
 import com.mohamedelloumi.android_challenge.presenters.ItemPresenter;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -24,7 +26,7 @@ public class ItemFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         FragmentItemBinding binding = DataBindingUtil.inflate(
