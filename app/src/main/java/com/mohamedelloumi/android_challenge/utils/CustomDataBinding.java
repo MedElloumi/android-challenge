@@ -15,6 +15,7 @@ import com.mohamedelloumi.android_challenge.ui.activities.MainActivity;
 import com.mohamedelloumi.android_challenge.ui.adapters.CollectionsAdapter;
 import com.mohamedelloumi.android_challenge.ui.adapters.PhotosAdapter;
 import com.mohamedelloumi.android_challenge.ui.fragments.ImagesFragment;
+import com.mohamedelloumi.android_challenge.ui.fragments.SinglePhotoFragment;
 import com.squareup.picasso.Picasso;
 
 public class CustomDataBinding {
@@ -43,14 +44,34 @@ public class CustomDataBinding {
         imageView.setOnClickListener(v -> openPhotosFragment(imageView.getContext(), String.valueOf(id)));
     }
 
+    @BindingAdapter("onPhotoClicked")
+    public static void setOnPhotoClicked(ImageView imageView, String id) {
+        // imageView.setOnClickListener(v -> Toast.makeText(imageView.getContext(), "you clicked on the following category " + id, Toast.LENGTH_LONG).show());
+        imageView.setOnClickListener(v -> openSinglePhotoFragment(imageView.getContext(), id));
+    }
+
     private static void openPhotosFragment(Context context, String collectionId) {
         MainActivity mainActivity = (MainActivity) context;
         ImagesFragment imagesFragment = new ImagesFragment();
         Bundle bundle = new Bundle();
         bundle.putString("collectionId", collectionId);
+        imagesFragment.setArguments(bundle);
         mainActivity.getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, imagesFragment)
                 .addToBackStack(null)
                 .commit();
     }
+
+    private static void openSinglePhotoFragment(Context context, String photoId) {
+        MainActivity mainActivity = (MainActivity) context;
+        SinglePhotoFragment singlePhotoFragment = new SinglePhotoFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("photoId", photoId);
+        singlePhotoFragment.setArguments(bundle);
+        mainActivity.getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, singlePhotoFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
 }

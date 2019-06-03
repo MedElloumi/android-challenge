@@ -55,4 +55,8 @@ public class Photo {
     public Urls getUrls() {
         return urls;
     }
+
+    public String getId() {
+        return id;
+    }
 }

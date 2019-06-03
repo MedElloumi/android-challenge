@@ -17,9 +17,14 @@ public class PhotosLogic {
     private PhotosService collectionsService = Client.getRetrofit().create(PhotosService.class);
 
     private PhotosInterface photosInterface;
+    private PhotoInterface photoInterface;
 
     public PhotosLogic(PhotosInterface photosInterface) {
         this.photosInterface = photosInterface;
+    }
+
+    public PhotosLogic(PhotoInterface photoInterface) {
+        this.photoInterface = photoInterface;
     }
 
     public void returnPhotos(String collectionId) {
@@ -39,9 +44,30 @@ public class PhotosLogic {
         });
     }
 
+    public void returnPhoto(String photoId) {
+        Call<Photo> call = collectionsService.getPhoto(photoId, Settings.clientId);
+        call.enqueue(new Callback<Photo>() {
+
+
+            @Override
+            public void onResponse(@NotNull Call<Photo> call, @NotNull Response<Photo> response) {
+                photoInterface.onPhotoResponse(response);
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<Photo> call, @NotNull Throwable t) {
+                photoInterface.onPhotoFailure(t);
+            }
+        });
+    }
+
     public interface PhotosInterface {
         void onPhotosResponse(Response<List<Photo>> response);
-
         void onPhotosFailure(Throwable t);
+    }
+
+    public interface PhotoInterface {
+        void onPhotoResponse(Response<Photo> response);
+        void onPhotoFailure(Throwable t);
     }
 }

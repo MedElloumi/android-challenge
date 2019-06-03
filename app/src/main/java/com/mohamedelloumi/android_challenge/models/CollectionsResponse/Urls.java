@@ -17,4 +17,12 @@ public class Urls {
     public String getThumb() {
         return thumb;
     }
+
+    public String getRegular() {
+        return regular;
+    }
+
+    public String getSmall() {
+        return small;
+    }
 }
