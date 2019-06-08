@@ -4,9 +4,11 @@ import android.content.Context;
 import android.databinding.BindingAdapter;
 import android.databinding.ObservableArrayList;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.mohamedelloumi.android_challenge.ApplicationContext;
 import com.mohamedelloumi.android_challenge.R;
 import com.mohamedelloumi.android_challenge.models.Collection;
 import com.mohamedelloumi.android_challenge.models.Photo;
@@ -15,6 +17,7 @@ import com.mohamedelloumi.android_challenge.ui.adapters.CollectionsAdapter;
 import com.mohamedelloumi.android_challenge.ui.adapters.PhotosAdapter;
 import com.mohamedelloumi.android_challenge.ui.fragments.ImagesFragment;
 import com.mohamedelloumi.android_challenge.ui.fragments.SinglePhotoFragment;
+import com.mohamedelloumi.tracking.logic.CollectionTrackingLogic;
 import com.squareup.picasso.Picasso;
 
 
@@ -40,13 +43,16 @@ public class CustomDataBinding {
 
     @BindingAdapter("onCategoryClicked")
     public static void setOnCategoryClicked(ImageView imageView, int id) {
-        // imageView.setOnClickListener(v -> Toast.makeText(imageView.getContext(), "you clicked on the following category " + id, Toast.LENGTH_LONG).show());
-        imageView.setOnClickListener(v -> openPhotosFragment(imageView.getContext(), String.valueOf(id)));
+        imageView.setOnClickListener(v -> {
+            CollectionTrackingLogic collectionTrackingLogic = new CollectionTrackingLogic();
+            collectionTrackingLogic.updateCollection(id, ApplicationContext.get());
+            openPhotosFragment(imageView.getContext(), String.valueOf(id));
+
+        });
     }
 
     @BindingAdapter("onPhotoClicked")
     public static void setOnPhotoClicked(ImageView imageView, String id) {
-        // imageView.setOnClickListener(v -> Toast.makeText(imageView.getContext(), "you clicked on the following category " + id, Toast.LENGTH_LONG).show());
         imageView.setOnClickListener(v -> openSinglePhotoFragment(imageView.getContext(), id));
     }
 

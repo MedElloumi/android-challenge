@@ -17,9 +17,14 @@ public class LocalCollection {
     @ColumnInfo(name = "visits")
     private int visits;
 
-    public LocalCollection(int id, int visits) {
+    @NonNull
+    @ColumnInfo(name = "image")
+    private String image;
+
+    public LocalCollection(int id, int visits, String image) {
         this.id = id;
         this.visits = visits;
+        this.image = image;
     }
 
     public int getId() {
@@ -28,5 +33,10 @@ public class LocalCollection {
 
     public int getVisits() {
         return visits;
+    }
+
+    @NonNull
+    public String getImage() {
+        return image;
     }
 }

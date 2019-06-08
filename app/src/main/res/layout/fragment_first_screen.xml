@@ -78,6 +78,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:visibility="@{!presenter.isFirstTimeUser ? View.VISIBLE : View.GONE}"
+                    app:img="@{presenter.featuredLocalCollection.image}"
                     tools:ignore="contentDescription"
                     tools:src="@tools:sample/backgrounds/scenic[0]" />
 
