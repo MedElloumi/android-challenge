@@ -6,7 +6,6 @@ import android.databinding.ObservableArrayList;
 import android.os.Bundle;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.mohamedelloumi.android_challenge.R;
 import com.mohamedelloumi.android_challenge.models.Collection;
@@ -17,6 +16,7 @@ import com.mohamedelloumi.android_challenge.ui.adapters.PhotosAdapter;
 import com.mohamedelloumi.android_challenge.ui.fragments.ImagesFragment;
 import com.mohamedelloumi.android_challenge.ui.fragments.SinglePhotoFragment;
 import com.squareup.picasso.Picasso;
+
 
 public class CustomDataBinding {
     @BindingAdapter("items")

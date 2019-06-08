@@ -88,6 +88,7 @@
                     android:numColumns="3"
                     android:overScrollMode="never"
                     android:scrollbars="none|vertical"
+                    android:stretchMode="columnWidth"
                     android:visibility="@{presenter.isFirstTimeUser ? View.VISIBLE : View.GONE}"
                     app:items="@{presenter.collectionsList}" />
             </FrameLayout>
